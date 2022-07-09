@@ -1,0 +1,15 @@
+label{
+  margin: 0 20px;
+}
+.field-container{
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.group-container{
+  margin: 20px;
+}
+.btn-group{
+  display: flex;
+  justify-content: space-between;
+}
