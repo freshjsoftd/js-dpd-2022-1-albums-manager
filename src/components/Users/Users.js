@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { NavLink, Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
 import UserAlbums from './UserAlbums';
 import UserForm from './UserForm';
 import UsersList from './UsersList';
 import AlbumPhotos from '../Albums/AlbumPhotos';
-import dataService from '../../data-service';
+import { fetchAllUsersAction } from '../../store/actions/usersActions'
+// import dataService from '../../data-service';
+import { useDispatch, useSelector } from 'react-redux';
 
 const styles= {
   fontSize: '30px',
@@ -13,13 +15,20 @@ const styles= {
 
 function Users() {
 
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
+  const dispatch = useDispatch()
+  const {usersList: {users}} = useSelector(state => state);
+  console.log(users)
+
 
   useEffect(() => {
-    dataService.get('/users')
-    .then(({data}) => setUsers(data))
-    .catch((error) => console.log(error))
-  }, [])
+    dispatch(fetchAllUsersAction())
+  }, [dispatch])
+  // useEffect(() => {
+  //   dataService.get('/users')
+  //   .then(({data}) => setUsers(data))
+  //   .catch((error) => console.log(error))
+  // }, [])
 
   const {url, path} = useRouteMatch();
   return (

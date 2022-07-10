@@ -27,8 +27,8 @@ function App() {
         </ul>
       </div>
 			<Switch>
-				<Route path='/albums'>
-					<Albums />
+				<Route path='/albums' component={Albums}>
+					{/* <Albums /> */}
 				</Route>
 				<Route path='/users'>
 					<Users />
