@@ -1,13 +1,31 @@
 label{
   margin: 0 20px;
 }
+legend{
+  font-size:30px;
+}
+button{
+  min-width: 100px;
+  min-height: 50px;
+  margin: 30px;
+  font-size: 20px;
+}
+#users-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .field-container{
   margin: 20px;
+  font-size: 30px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .group-container{
   margin: 20px;
+  max-width: 70%;
+  min-width: 30%;
 }
 .btn-group{
   display: flex;

@@ -34,7 +34,7 @@ function App() {
 					<Users />
 				</Route>
 				<Route path='/' exact>
-					<div>Home</div>
+					Home
 				</Route>
 				<Route path='*'>
 					<Redirect to='/users'></Redirect>

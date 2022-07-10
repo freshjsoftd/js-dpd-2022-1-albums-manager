@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React from 'react';
+// import { useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import './UsersList.css'
 
-import dataService from '../../data-service'
+// import dataService from '../../data-service'
 
-function UsersList() {
+function UsersList({users}) {
 
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
 
   const {url} = useRouteMatch()
 
-  useEffect(() => {
-    dataService.get('/users')
-    .then(({data}) => setUsers(data))
-    .catch((error) => console.log(error))
-  }, [])
+  // useEffect(() => {
+  //   dataService.get('/users')
+  //   .then(({data}) => setUsers(data))
+  //   .catch((error) => console.log(error))
+  // }, [])
 
   return (
     <ul className="users-container">
