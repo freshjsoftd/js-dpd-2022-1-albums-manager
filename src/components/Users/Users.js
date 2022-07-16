@@ -18,7 +18,6 @@ function Users() {
   // const [users, setUsers] = useState([]);
   const dispatch = useDispatch()
   const {usersList: {users}} = useSelector(state => state);
-  console.log(users)
 
 
   useEffect(() => {

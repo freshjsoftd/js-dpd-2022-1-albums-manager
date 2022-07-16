@@ -1,11 +1,16 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 // import { useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
+import { deleteUserAction } from '../../store/actions/usersActions';
 import './UsersList.css'
 
 // import dataService from '../../data-service'
 
 function UsersList({users}) {
+
+  const dispatch = useDispatch();
+  // const {usersList: {users}} = useSelector(state => state)
 
   // const [users, setUsers] = useState([]);
 
@@ -16,6 +21,10 @@ function UsersList({users}) {
   //   .then(({data}) => setUsers(data))
   //   .catch((error) => console.log(error))
   // }, [])
+
+  const onDelete = (id) => { 
+    dispatch(deleteUserAction(id))
+   }
 
   return (
     <ul className="users-container">
@@ -31,7 +40,7 @@ function UsersList({users}) {
             <Link to={`${url}/add/${user.id}`}>
               <p id='edit' className='fa fa-pencil'></p>
             </Link>
-            <p id='del' className='fa fa-trash-o'></p>
+            <p id='del' className='fa fa-trash-o' onClick={() => onDelete(user.id)}></p>
           </li>
         )
       })}
